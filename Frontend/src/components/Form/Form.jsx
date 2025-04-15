@@ -1,10 +1,14 @@
 import InputField from "../../utils/Input/InputField";
 import SelectField from "../../utils/Select/SelectField";
+import { Link } from "react-router-dom";
 import "./Form.scss";
 
 function Form() {
   return (
     <form className="form">
+      <Link to="/employee" className="employee">
+        View Current Employees
+      </Link>
       <h2>Create Employee</h2>
 
       <InputField id="firstName" label="First Name" />

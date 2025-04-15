@@ -1,7 +1,14 @@
-import React from "react";
+import { NavLink } from "react-router-dom";
+import "./Header.scss";
 
 function Header() {
-  return <div>Header</div>;
+  return (
+    <nav className="header">
+      <NavLink>
+        <img className="logo" src="/WH_logo.png" alt="logo WealthHealth" />
+      </NavLink>
+    </nav>
+  );
 }
 
 export default Header;

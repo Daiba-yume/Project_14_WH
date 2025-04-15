@@ -1,0 +1,30 @@
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.inputWrapper label {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.inputWrapper input,
+.inputWrapper select {
+  padding: 10px;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+/* Focus sur les champs de saisie et les select */
+.inputWrapper input:focus,
+.inputWrapper select:focus {
+  border-color: #00bc77;
+  outline: none;
+}
