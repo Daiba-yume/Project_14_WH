@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Form from "../Form/Form";
 
 function Home() {
   return (
@@ -7,7 +8,7 @@ function Home() {
       <Link to="/employee" className="employee">
         View Current Employees
       </Link>
-      <div>Create Employee </div>
+      <Form />
     </section>
   );
 }

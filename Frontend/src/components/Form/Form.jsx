@@ -1,7 +1,32 @@
-import React from "react";
+import InputField from "../../utils/Input/InputField";
+import SelectField from "../../utils/Select/SelectField";
+import "./Form.scss";
 
 function Form() {
-  return <div>Form</div>;
+  return (
+    <form className="form">
+      <h2>Create Employee</h2>
+
+      <InputField id="firstName" label="First Name" />
+      <InputField id="lastName" label="Last Name" />
+      <InputField id="dateOfBirth" label="Date Of Birth" type="date" />
+      <InputField id="startDate" label="Start Date" type="date" />
+
+      <SelectField
+        id="department"
+        label="Department"
+        option={[
+          "Sales",
+          "Marketing",
+          "Engineering",
+          "Human Ressources",
+          "Legal",
+        ]}
+      />
+
+      <button type="submit">Save</button>
+    </form>
+  );
 }
 
 export default Form;
