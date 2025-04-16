@@ -2,11 +2,25 @@
   padding: 20px;
   border-top: 2px solid #55691d;
   text-align: center;
+  .footer-text {
+    margin: 0;
+    padding: 0;
+    color: black;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    background: linear-gradient(90deg, #7d8f3d, #181817);
+    background-size: 200% auto;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: gradientMove 10s linear infinite;
+  }
 }
 
-.footer-text {
-  margin: 0;
-  padding: 0;
-  color: black;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+@keyframes gradientMove {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
 }
