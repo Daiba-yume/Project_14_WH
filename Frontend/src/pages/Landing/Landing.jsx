@@ -7,7 +7,7 @@ function Landing() {
       <h1>Bienvenue sur Wealth Health</h1>
       <p> Cliquez sur le bouton pour créez un employee</p>
       <div className="button">
-        <Link to="/home">
+        <Link to="/employee">
           <button>Create Employee</button>
         </Link>
       </div>
