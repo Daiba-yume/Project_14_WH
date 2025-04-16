@@ -5,7 +5,7 @@ function Employee() {
   return (
     <section>
       <div>Employee</div>
-      <Link to="/" className="home">
+      <Link to="/home" className="home">
         Home
       </Link>
     </section>

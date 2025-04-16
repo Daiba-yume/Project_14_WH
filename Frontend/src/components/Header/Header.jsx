@@ -4,7 +4,7 @@ import "./Header.scss";
 function Header() {
   return (
     <nav className="header">
-      <NavLink>
+      <NavLink to="/">
         <img className="logo" src="/WH_logo.png" alt="logo WealthHealth" />
       </NavLink>
     </nav>
