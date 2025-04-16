@@ -6,7 +6,7 @@ import "./Form.scss";
 function Form() {
   return (
     <form className="form">
-      <Link to="/employee" className="employee">
+      <Link to="/employeeList" className="employeeList">
         View Current Employees
       </Link>
       <h2>Create Employee</h2>

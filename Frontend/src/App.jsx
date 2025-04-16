@@ -2,9 +2,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./index.css";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import Home from "./components/Home/Home";
-import Employee from "./components/Employee/Employee";
-import Landing from "./components/Landing/Landing";
+import Landing from "./pages/Landing/Landing";
+import EmployeeList from "./pages/Employee/EmployeeList";
+import Employee from "./pages/Home/Employee";
 
 function App() {
   return (
@@ -12,8 +12,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/home" element={<Home />} />
         <Route path="/employee" element={<Employee />} />
+        <Route path="/employeeList" element={<EmployeeList />} />
       </Routes>
       <Footer />
     </Router>

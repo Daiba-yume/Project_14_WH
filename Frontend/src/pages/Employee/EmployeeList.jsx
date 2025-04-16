@@ -1,15 +1,14 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
-function Employee() {
+function EmployeeList() {
   return (
     <section>
       <div>Employee</div>
-      <Link to="/home" className="home">
+      <Link to="/employee" className="employee">
         Home
       </Link>
     </section>
   );
 }
 
-export default Employee;
+export default EmployeeList;

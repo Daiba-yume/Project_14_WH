@@ -2,9 +2,39 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 20px;
+  padding-left: 10px;
   border-bottom: 2px solid #55691d;
   .logo {
-    width: 45%;
+    width: 50%;
+  }
+  .navContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    flex-grow: 1;
+    gap: 20px;
+
+    button {
+      display: flex;
+      position: relative;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 25px;
+      right: 20px;
+      background-color: #4c5f1c;
+      border: 8px solid #6a7c2e;
+      color: white;
+      gap: 8px;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    button:hover {
+      border: 8px solid #4c5f1c;
+      background-color: #6a7c2e;
+    }
+    button:active {
+      border: 5px solid #c0dfff;
+    }
   }
 }
