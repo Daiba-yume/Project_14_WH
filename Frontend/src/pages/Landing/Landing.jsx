@@ -4,8 +4,11 @@ import "./Landing.scss";
 function Landing() {
   return (
     <section className="container">
-      <h1>Bienvenue sur Wealth Health</h1>
-      <p> Cliquez sur le bouton pour créez un employee</p>
+      <h1>Welcome to Wealth Health</h1>
+      <p>
+        <em>Click here to create an employee</em>
+      </p>
+
       <div className="button">
         <Link to="/employee">
           <button>Create Employee</button>

@@ -6,7 +6,7 @@ function EmployeeList() {
     <section className="container">
       <h1>Current Employees</h1>
       <Link to="/employee" className="employee">
-        Home
+        Employee
       </Link>
     </section>
   );
