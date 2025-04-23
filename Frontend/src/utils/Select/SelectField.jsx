@@ -1,10 +1,10 @@
 import "./SelectField.scss";
-function SelectField({ id, label, option }) {
+function SelectField({ id, label, options = [] }) {
   return (
     <div className="inputWrapper">
       <label>{label}</label>
       <select id={id}>
-        {option.map((opt, i) => (
+        {options.map((opt, i) => (
           <option key={i}>{opt}</option>
         ))}
       </select>

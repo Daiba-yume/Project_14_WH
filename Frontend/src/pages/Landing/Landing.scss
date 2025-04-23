@@ -1,4 +1,6 @@
 .container {
+  display: flex;
+  flex-direction: column;
   text-align: center;
   background-color: #7d8f3d;
   padding: 18.5rem;

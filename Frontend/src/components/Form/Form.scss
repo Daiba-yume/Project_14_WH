@@ -1,27 +1,35 @@
-.form {
+.formContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-sizing: border-box;
-  padding: 4.5rem;
-  background-color: #7d8f3d;
+  padding-bottom: 10px;
+  h1 {
+    font-size: 24px;
+    line-height: 0;
+  }
   .employeeList {
     text-decoration: underline;
     color: white;
   }
-  button {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    width: 8%;
-    background-color: #6a7c2e;
-    color: white;
-    cursor: pointer;
-    border-radius: 10px;
-    transition: transform 0.2s, background-color 0.3s;
-  }
-  button:hover {
-    background-color: #a4b358;
-    transform: scale(1.05);
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    button {
+      margin-top: 10px;
+      font-size: 16px;
+      border: none;
+      background-color: #6a7c2e;
+      color: white;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: transform 0.2s, background-color 0.3s;
+    }
+    button:hover {
+      background-color: #a4b358;
+      transform: scale(1.05);
+    }
   }
 }
