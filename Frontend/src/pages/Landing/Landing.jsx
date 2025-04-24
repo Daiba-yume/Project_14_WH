@@ -4,7 +4,7 @@ import "./Landing.scss";
 function Landing() {
   return (
     <section className="container">
-      <h1>Welcome to Wealth Health</h1>
+      <h1>Welcome to HRnet</h1>
       <p>
         <em>Click here to create an employee</em>
       </p>
