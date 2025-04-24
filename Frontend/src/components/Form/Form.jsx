@@ -4,7 +4,14 @@ import { Link } from "react-router-dom";
 import "./Form.scss";
 import FieldSet from "../../utils/Field/FieldSet";
 
-function Form() {
+function Form({ onSuccess }) {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (onSuccess) {
+      onSuccess();
+    }
+  };
   return (
     <div className="formContainer">
       <h1>HRnet</h1>
@@ -12,7 +19,7 @@ function Form() {
         View Current Employees
       </Link>
       <h2>Create Employee</h2>
-      <form className="form">
+      <form className="form" onSubmit={handleSubmit}>
         <InputField id="firstName" label="First Name" />
         <InputField id="lastName" label="Last Name" />
         <InputField id="dateOfBirth" label="Date Of Birth" type="date" />
