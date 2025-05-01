@@ -1,4 +1,4 @@
-import { IoCloseCircle } from "react-icons/io5";
+/* import { IoCloseCircle } from "react-icons/io5";
 import "./Modal.scss";
 
 function Modal({ isOpen, onClose, children }) {
@@ -17,3 +17,4 @@ function Modal({ isOpen, onClose, children }) {
 }
 
 export default Modal;
+ */
