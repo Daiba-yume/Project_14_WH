@@ -3,8 +3,13 @@ import SelectField from "../../utils/Select/SelectField";
 import { Link } from "react-router-dom";
 import "./Form.scss";
 import FieldSet from "../../utils/Field/FieldSet";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { useState } from "react";
 
 function Form({ onSuccess }) {
+  const [dateOfBirth, setDateOfBirth] = useState(null);
+  const [startDate, setStartDate] = useState(null);
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -22,8 +27,27 @@ function Form({ onSuccess }) {
       <form className="form" onSubmit={handleSubmit}>
         <InputField id="firstName" label="First Name" />
         <InputField id="lastName" label="Last Name" />
-        <InputField id="dateOfBirth" label="Date Of Birth" type="date" />
-        <InputField id="startDate" label="Start Date" type="date" />
+        <div className="formGroup formField">
+          <label className="labelPicker">Date of Birth</label>
+          <DatePicker
+            selected={dateOfBirth}
+            onChange={(date) => setDateOfBirth(date)}
+            id="dateOfBirth"
+            dateFormat="MM/dd/yyyy"
+            className="inputPicker"
+          />
+        </div>
+
+        <div className="formGroup formField">
+          <label className="labelPicker">Start Date</label>
+          <DatePicker
+            selected={startDate}
+            onChange={(date) => setStartDate(date)}
+            id="startDate"
+            dateFormat="MM/dd/yyyy"
+            className="inputPicker"
+          />
+        </div>
 
         <FieldSet legend="Adress">
           <InputField id="street" label="Street" />
