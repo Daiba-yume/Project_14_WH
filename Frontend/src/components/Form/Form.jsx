@@ -68,7 +68,9 @@ function Form({ onSuccess }) {
           ]}
         />
 
-        <button type="submit">Save</button>
+        <button className="save" type="submit">
+          Save
+        </button>
       </form>
     </div>
   );
