@@ -3,6 +3,7 @@ import Form from "../../components/Form/Form";
 /* import Modal from "../../components/Modal/Modal"; */
 import { Modal } from "react-wh-modal";
 import "./Employee.scss";
+import { PiUserCircleCheckDuotone } from "react-icons/pi";
 
 function Employee() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -13,7 +14,9 @@ function Employee() {
     <section>
       <Form onSuccess={handleOpenModal} />
       <Modal isOpen={modalOpen} onClose={handleCloseModal}>
-        <p>Employee created !</p>
+        <PiUserCircleCheckDuotone className="icon" size={100} />
+        <h1>Employee Created !</h1>
+        <p>The employee has been created successfully</p>
       </Modal>
     </section>
   );

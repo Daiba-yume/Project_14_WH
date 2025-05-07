@@ -3,4 +3,17 @@ section {
   justify-content: center;
   align-items: center;
   background-color: #7d8f3d;
+  .icon {
+    width: 100%;
+    align-items: center;
+    color: #4c5f1c;
+    margin-top: 40px;
+  }
+  h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+  }
 }
