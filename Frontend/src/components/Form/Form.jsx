@@ -35,6 +35,7 @@ function Form({ onSuccess }) {
             id="dateOfBirth"
             dateFormat="MM/dd/yyyy"
             className="inputPicker"
+            required
           />
         </div>
 
@@ -46,6 +47,7 @@ function Form({ onSuccess }) {
             id="startDate"
             dateFormat="MM/dd/yyyy"
             className="inputPicker"
+            required
           />
         </div>
 
