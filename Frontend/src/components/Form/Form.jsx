@@ -5,6 +5,8 @@ import "./Form.scss";
 import FieldSet from "../../utils/Field/FieldSet";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { StateSelect, CitySelect } from "react-country-state-city";
+import "react-country-state-city/dist/react-country-state-city.css";
 import { useState } from "react";
 
 function Form({ onSuccess }) {
@@ -27,7 +29,8 @@ function Form({ onSuccess }) {
       <form className="form" onSubmit={handleSubmit}>
         <InputField id="firstName" label="First Name" />
         <InputField id="lastName" label="Last Name" />
-        <div className="formGroup formField">
+        {/* Input Date */}
+        <div className="formGroup">
           <label className="labelPicker">Date of Birth</label>
           <DatePicker
             selected={dateOfBirth}
@@ -38,8 +41,7 @@ function Form({ onSuccess }) {
             required
           />
         </div>
-
-        <div className="formGroup formField">
+        <div className="formGroup">
           <label className="labelPicker">Start Date</label>
           <DatePicker
             selected={startDate}
@@ -50,11 +52,11 @@ function Form({ onSuccess }) {
             required
           />
         </div>
-
+        {/* Adress */}
         <FieldSet legend="Adress">
           <InputField id="street" label="Street" />
-          <InputField id="city" label="City" />
-          <SelectField id="state" label="State" />
+          <CitySelect placeHolder="Select City" />
+          <StateSelect placeHolder="Select Sate" />
           <InputField id="zip-code" label="Zip code" type="number" />
         </FieldSet>
 
