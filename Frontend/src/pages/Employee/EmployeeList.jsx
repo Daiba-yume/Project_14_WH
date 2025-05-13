@@ -4,7 +4,7 @@ import "./EmployeeList.scss";
 function EmployeeList() {
   return (
     <section className="container">
-      <h1>Current Employees</h1>
+      <h1>All Employees</h1>
       <Link to="/employee" className="employee">
         Employee
       </Link>
