@@ -3,17 +3,27 @@
   flex-direction: column;
   align-items: center;
   padding-bottom: 10px;
-  h1 {
-    font-size: 24px;
-    line-height: 0;
-  }
-  .employeeList {
-    text-decoration: underline;
-    color: white;
+  .titleContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    font-size: 18px;
+    .employeeList {
+      line-height: 3.3;
+      color: #343b1d;
+      text-decoration: underline;
+    }
   }
 
+  .titleEmployee {
+    margin: 0;
+    font-size: 20px;
+    color: black;
+  }
   .form {
     display: flex;
+    margin-top: 5px;
+    gap: 8px;
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
