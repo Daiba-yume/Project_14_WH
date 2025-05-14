@@ -1,4 +1,31 @@
-.employee {
-  color: black;
-  text-decoration: underline;
+.employeeList {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  h1 {
+    font-size: 25px;
+    color: Black;
+  }
+  .employee {
+    color: black;
+    text-decoration: underline;
+  }
+  table {
+    width: 80%;
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    padding: 8px 15px;
+    border: 1px solid #ccc;
+    text-align: left;
+    color: #4a5230;
+    background-color: #d9d8d8;
+  }
+
+  th {
+    color: #343b1d;
+    background-color: #f4f4f4;
+  }
 }

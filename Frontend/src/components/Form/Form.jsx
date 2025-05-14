@@ -8,16 +8,35 @@ import "react-datepicker/dist/react-datepicker.css";
 import { StateSelect } from "react-country-state-city";
 import "react-country-state-city/dist/react-country-state-city.css";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addEmployee } from "../../Redux/Slices/employeesSlice";
 
 function Form({ onSuccess }) {
   const [dateOfBirth, setDateOfBirth] = useState(null);
   const [startDate, setStartDate] = useState(null);
-
+  const dispatch = useDispatch();
   const [countryid] = useState("US");
   const [stateid, setStateid] = useState("");
 
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    dateOfBirth: "",
+    startDate: "",
+    department: "",
+    street: "",
+    city: "",
+    state: "",
+    zipCode: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(addEmployee(formData));
 
     if (onSuccess) {
       onSuccess();
@@ -33,16 +52,22 @@ function Form({ onSuccess }) {
       </div>
       <h2 className="titleEmployee">Create Employee</h2>
       <form className="form" onSubmit={handleSubmit}>
-        <InputField id="firstName" label="First Name" />
-        <InputField id="lastName" label="Last Name" />
+        <InputField id="firstName" label="First Name" onChange={handleChange} />
+        <InputField id="lastName" label="Last Name" onChange={handleChange} />
         {/* Input Date */}
         <div className="formGroup">
           <label className="labelPicker">Date of Birth</label>
           <DatePicker
             selected={dateOfBirth}
-            onChange={(date) => setDateOfBirth(date)}
+            onChange={(date) => {
+              setDateOfBirth(date);
+              setFormData((prevData) => ({
+                ...prevData,
+                dateOfBirth: date.toISOString(),
+              }));
+            }}
             id="dateOfBirth"
-            dateFormat="MM/dd/yyyy"
+            dateFormat="dd/MM/yyyy"
             className="inputPicker"
             required
           />
@@ -51,28 +76,19 @@ function Form({ onSuccess }) {
           <label className="labelPicker">Start Date</label>
           <DatePicker
             selected={startDate}
-            onChange={(date) => setStartDate(date)}
+            onChange={(date) => {
+              setStartDate(date);
+              setFormData((prevData) => ({
+                ...prevData,
+                startDate: date.toISOString(), // convertit la date en text pour la stocker dans redux
+              }));
+            }}
             id="startDate"
-            dateFormat="MM/dd/yyyy"
+            dateFormat="dd/MM/yyyy"
             className="inputPicker"
             required
           />
         </div>
-        {/* Adress */}
-        <FieldSet legend="Adress">
-          <InputField id="street" label="Street" />
-          <InputField id="city" label="City" />
-          <StateSelect
-            countryid={countryid}
-            stateid={stateid}
-            placeHolder="Select Sate"
-            onChange={(e) => {
-              setStateid(e.id);
-            }}
-          />
-          <InputField id="zip-code" label="Zip code" type="number" />
-        </FieldSet>
-
         <SelectField
           id="department"
           label="Department"
@@ -83,7 +99,31 @@ function Form({ onSuccess }) {
             "Human Ressources",
             "Legal",
           ]}
+          onChange={handleChange}
         />
+        {/* Adress */}
+        <FieldSet legend="Adress">
+          <InputField id="street" label="Street" onChange={handleChange} />
+          <InputField id="city" label="City" onChange={handleChange} />
+          <StateSelect
+            countryid={countryid}
+            stateid={stateid}
+            placeholder="Select State"
+            onChange={(e) => {
+              setStateid(e.id);
+              setFormData((prevData) => ({
+                ...prevData,
+                state: e.name,
+              }));
+            }}
+          />
+          <InputField
+            id="zipCode"
+            label="Zip code"
+            type="number"
+            onChange={handleChange}
+          />
+        </FieldSet>
 
         <button className="save" type="submit">
           Save
