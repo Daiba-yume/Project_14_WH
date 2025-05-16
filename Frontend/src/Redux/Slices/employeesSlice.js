@@ -1,8 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  employees: [], // stock la list des employés
-};
+const initialState = []; // stock la list des employés
 
 // création du slice pr gérer les employées
 const employeeSlice = createSlice({
@@ -10,7 +8,7 @@ const employeeSlice = createSlice({
   initialState,
   reducers: {
     addEmployee: (state, action) => {
-      state.employees.push(action.payload); // add employee
+      state.push(action.payload); // add employee
     },
   },
 });

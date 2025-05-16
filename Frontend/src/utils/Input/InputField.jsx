@@ -1,9 +1,16 @@
 import "./InputField.scss";
-function InputField({ id, label, type = "text" }) {
+function InputField({ id, label, name, type = "text", value, onChange }) {
   return (
     <div className="inputWrapper">
       <label>{label}</label>
-      <input id={id} type={type} required></input>
+      <input
+        id={id}
+        name={name}
+        type={type}
+        required
+        value={value}
+        onChange={onChange}
+      ></input>
     </div>
   );
 }
