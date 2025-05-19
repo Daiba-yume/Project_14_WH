@@ -1,52 +1,112 @@
 [
   {
-    "id": 1,
     "firstName": "John",
     "lastName": "Doe",
-    "email": "john.doe@example.com",
     "dateOfBirth": "1990-06-15",
     "startDate": "2019-01-20",
     "department": "Marketing",
-    "adress": "253 rosa St, Cityville, CA"
+    "street": "123 Main St",
+    "city": "New York",
+    "state": "NY",
+    "zipCode": "10001"
   },
   {
-    "id": 2,
     "firstName": "Lou",
     "lastName": "Smith",
-    "email": "lou.smith@example.com",
     "dateOfBirth": "1998-02-04",
     "startDate": "2022-12-08",
     "department": "Legal",
-    "adress": "456 Oak Ave, Townsville, TX"
+    "street": "456 Elm Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "zipCode": "90001"
   },
   {
-    "id": 3,
     "firstName": "Anne",
     "lastName": "Corme",
-    "email": "anne.corme@example.com",
     "dateOfBirth": "1992-09-12",
     "startDate": "2021-08-13",
     "department": "Human Ressources",
-    "adress": "789 Pine Rd, Villagetown, FL"
+    "street": "789 Maple Dr",
+    "city": "Chicago",
+    "state": "IL",
+    "zipCode": "60601"
   },
   {
-    "id": 4,
     "firstName": "Erick",
     "lastName": "Liven",
-    "email": "erick.liven@example.com",
     "dateOfBirth": "1995-12-05",
     "startDate": "2020-04-10",
     "department": "Engineering",
-    "adress": "01 Elm St, Suburbia, NY"
+    "street": "321 Oak Ln",
+    "city": "Houston",
+    "state": "TX",
+    "zipCode": "77001"
   },
   {
-    "id": 5,
+    "firstName": "Harry",
+    "lastName": "Limme",
+    "dateOfBirth": "1999-02-05",
+    "startDate": "2023-11-12",
+    "department": "Engineering",
+    "street": "654 Pine Rd",
+    "city": "Phoenix",
+    "state": "AZ",
+    "zipCode": "85001"
+  },
+  {
+    "firstName": "Louise",
+    "lastName": "Costella",
+    "dateOfBirth": "1988-10-06",
+    "startDate": "2020-06-16",
+    "department": "Marketing",
+    "street": "987 Cedar St",
+    "city": "Philadelphia",
+    "state": "PA",
+    "zipCode": "19019"
+  },
+  {
+    "firstName": "Esther",
+    "lastName": "Sand",
+    "dateOfBirth": "1998-09-12",
+    "startDate": "2019-11-14",
+    "department": "Engineering",
+    "street": "111 Birch Blvd",
+    "city": "San Antonio",
+    "state": "TX",
+    "zipCode": "78201"
+  },
+  {
+    "firstName": "Luke",
+    "lastName": "Hans",
+    "dateOfBirth": "1992-04-04",
+    "startDate": "2021-03-17",
+    "department": "Legal",
+    "street": "222 Spruce Ct",
+    "city": "San Diego",
+    "state": "CA",
+    "zipCode": "92101"
+  },
+  {
     "firstName": "Dwayne",
-    "lastName": "Mist",
-    "email": "dwayne.mist@example.com",
+    "lastName": "Sanchez",
     "dateOfBirth": "1985-04-22",
     "startDate": "2018-11-02",
+    "department": "Human Ressources",
+    "street": "333 Walnut Ave",
+    "city": "Dallas",
+    "state": "TX",
+    "zipCode": "75201"
+  },
+  {
+    "firstName": "Tommy",
+    "lastName": "Aymmon",
+    "dateOfBirth": "1989-11-07",
+    "startDate": "2017-08-13",
     "department": "Legal",
-    "adress": "202 Maple Blvd, Uptown, CA"
+    "street": "444 Chestnut Way",
+    "city": "San Jose",
+    "state": "CA",
+    "zipCode": "95101"
   }
 ]

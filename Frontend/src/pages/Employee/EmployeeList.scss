@@ -6,6 +6,17 @@
     font-size: 25px;
     color: Black;
   }
+  .search {
+    display: flex;
+    flex-direction: row;
+    font-weight: 700;
+    margin: 5px;
+    color: #343b1d;
+    gap: 5px;
+    input {
+      border-radius: 8px;
+    }
+  }
   .employee {
     color: black;
     text-decoration: underline;
@@ -27,5 +38,8 @@
   th {
     color: #343b1d;
     background-color: #f4f4f4;
+  }
+  .pagination {
+    margin: 10px;
   }
 }

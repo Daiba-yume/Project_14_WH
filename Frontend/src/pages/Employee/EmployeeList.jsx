@@ -8,9 +8,14 @@ import {
   flexRender,
 } from "@tanstack/react-table";
 import { useSelector } from "react-redux";
+import employeeFromJson from "../../data/employee.json";
+import { useState } from "react";
 
 function EmployeeList() {
-  const employees = useSelector((state) => state.employees);
+  const employeeFromRedux = useSelector((state) => state.employees);
+  const allEmployees = [...employeeFromJson, employeeFromRedux];
+
+  const [globalFilter, setGlobalFilter] = useState("");
 
   const columns = [
     { accessorKey: "firstName", header: "First Name" },
@@ -25,8 +30,13 @@ function EmployeeList() {
   ];
 
   const table = useReactTable({
-    data: employees,
+    data: allEmployees,
     columns,
+    state: {
+      globalFilter,
+    },
+    onGlobalFilterChange: setGlobalFilter,
+    globalFilterFn: "includesString",
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
@@ -34,7 +44,14 @@ function EmployeeList() {
   return (
     <section className="employeeList">
       <h1>All Employees</h1>
-
+      <div className="search">
+        <label>Search:</label>
+        <input
+          type="text"
+          value={globalFilter}
+          onChange={(e) => setGlobalFilter(e.target.value)}
+        />
+      </div>
       <table>
         {/* columns */}
         <thead>
@@ -55,7 +72,7 @@ function EmployeeList() {
         </thead>
         {/* rows */}
         <tbody>
-          {table.getCoreRowModel().rows.map((row) => (
+          {table.getRowModel().rows.map((row) => (
             <tr key={row.id}>
               {row.getAllCells().map((cell) => (
                 <td key={cell.id}>
@@ -66,8 +83,16 @@ function EmployeeList() {
           ))}
         </tbody>
       </table>
+      <div className="pagination">
+        <button onClick={() => table.previousPage()}>Previous</button>
+        <span>
+          Page {table.getState().pagination.pageIndex + 1} of
+          {table.getPageCount()}
+        </span>
+        <button onClick={() => table.nextPage()}>Next</button>
+      </div>
       <Link to="/employee" className="employee">
-        Employee
+        Go back to Form
       </Link>
     </section>
   );

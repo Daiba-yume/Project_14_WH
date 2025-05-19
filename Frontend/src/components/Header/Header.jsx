@@ -15,12 +15,12 @@ function Header() {
         </NavLink>
         <NavLink to="/employee">
           <button>
-            <span>Employee</span>
+            <span>Form</span>
           </button>
         </NavLink>
         <NavLink to="/employeeList">
           <button>
-            <span>Current Employees</span>
+            <span>All Employees</span>
           </button>
         </NavLink>
       </div>
