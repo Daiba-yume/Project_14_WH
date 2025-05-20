@@ -3,7 +3,7 @@
   flex-direction: column;
   text-align: center;
   background-color: #7d8f3d;
-  padding: 18.5rem;
+  min-height: 85vh;
 
   h1 {
     font-size: 28px;
@@ -30,5 +30,8 @@
       background-color: #a4b358;
       transform: scale(1.05);
     }
+  }
+  @media screen and (max-width: 768px) {
+    min-height: 88vh;
   }
 }

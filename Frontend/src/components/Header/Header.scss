@@ -7,6 +7,14 @@
   .logo {
     width: 40%;
   }
+  .burger {
+    display: none;
+    font-size: 25px;
+    background: none;
+    border: none;
+    margin-right: 20px;
+    outline: none;
+  }
   .navContainer {
     display: flex;
     flex-direction: row;
@@ -35,6 +43,32 @@
     }
     button:active {
       border: 5px solid #c0dfff;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .burger {
+      display: block;
+    }
+    .navContainer {
+      display: none;
+      flex-direction: column;
+      align-items: flex-end;
+      position: absolute;
+      top: 70px;
+      right: 20px;
+      background-color: #6a7c2e;
+      padding: 10px;
+      border-radius: 10px;
+      z-index: 10;
+      width: 150px;
+    }
+    .navContainer.open {
+      display: flex;
+    }
+    .navContainer button {
+      width: 18vh;
+      right: 0;
+      padding: 8px 15px;
     }
   }
 }
