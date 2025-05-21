@@ -10,10 +10,15 @@ import {
 import { useSelector } from "react-redux";
 import employeeFromJson from "../../data/employee.json";
 import { useState } from "react";
+import { useMemo } from "react";
 
 function EmployeeList() {
   const employeeFromRedux = useSelector((state) => state.employees);
-  const allEmployees = [...employeeFromJson, employeeFromRedux];
+  // useMemo mémorise la liste sauf si employeeFromRedux change
+  const allEmployees = useMemo(
+    () => [...employeeFromJson, ...employeeFromRedux],
+    [employeeFromRedux]
+  );
 
   const [globalFilter, setGlobalFilter] = useState("");
 
@@ -44,13 +49,32 @@ function EmployeeList() {
   return (
     <section className="employeeList">
       <h1>All Employees</h1>
-      <div className="search">
-        <label>Search:</label>
-        <input
-          type="text"
-          value={globalFilter}
-          onChange={(e) => setGlobalFilter(e.target.value)}
-        />
+      <div className="headerEmployee">
+        <div className="showSelect">
+          <span className="showLabel">Show</span>
+          <select
+            className="selectShow"
+            value={table.getState().pagination.pageSize}
+            onChange={(e) => {
+              table.setPageSize(Number(e.target.value));
+            }}
+          >
+            {[10, 20, 30, 40, 50].map((pageSize) => (
+              <option key={pageSize} value={pageSize}>
+                {pageSize}
+              </option>
+            ))}
+          </select>
+          <span className="showLabel">entries</span>
+        </div>
+        <div className="search">
+          <label>Search:</label>
+          <input
+            type="text"
+            value={globalFilter}
+            onChange={(e) => setGlobalFilter(e.target.value)}
+          />
+        </div>
       </div>
       <table>
         {/* columns */}
@@ -83,14 +107,38 @@ function EmployeeList() {
           ))}
         </tbody>
       </table>
+
       <div className="pagination">
-        <button onClick={() => table.previousPage()}>Previous</button>
-        <span>
-          Page {table.getState().pagination.pageIndex + 1} of
-          {table.getPageCount()}
-        </span>
-        <button onClick={() => table.nextPage()}>Next</button>
+        <button
+          className="paginationBtn"
+          onClick={() => table.firstPage()}
+          disabled={!table.getCanPreviousPage()}
+        >
+          {"<<"}
+        </button>
+        <button
+          className="paginationBtn"
+          onClick={() => table.previousPage()}
+          disabled={!table.getCanPreviousPage()}
+        >
+          {"<"}
+        </button>
+        <button
+          className="paginationBtn"
+          onClick={() => table.nextPage()}
+          disabled={!table.getCanNextPage()}
+        >
+          {">"}
+        </button>
+        <button
+          className="paginationBtn"
+          onClick={() => table.lastPage()}
+          disabled={!table.getCanNextPage()}
+        >
+          {">>"}
+        </button>
       </div>
+
       <Link to="/employee" className="employee">
         Go back to Form
       </Link>

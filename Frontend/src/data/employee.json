@@ -108,5 +108,60 @@
     "city": "San Jose",
     "state": "CA",
     "zipCode": "95101"
+  },
+  {
+    "firstName": "Alena",
+    "lastName": "Irsin",
+    "dateOfBirth": "1999-08-12",
+    "startDate": "2023-12-03",
+    "department": "Sales",
+    "street": "987 Willow Creek Rd",
+    "city": "Santa Rosa",
+    "state": "CA",
+    "zipCode": "95401"
+  },
+  {
+    "firstName": "Lucas",
+    "lastName": "Benoit",
+    "dateOfBirth": "1991-02-18",
+    "startDate": "2020-08-08",
+    "department": "Marketing",
+    "street": "782 Maple Drive",
+    "city": "Sacramento",
+    "state": "CA",
+    "zipCode": "95814"
+  },
+  {
+    "firstName": "Nora",
+    "lastName": "Edmond",
+    "dateOfBirth": "1988-08-13",
+    "startDate": "2016-05-23",
+    "department": "Sales",
+    "street": "1290 Oak Avenue",
+    "city": "Fresno",
+    "state": "CA",
+    "zipCode": "93721"
+  },
+  {
+    "firstName": "Jules",
+    "lastName": "Merchand",
+    "dateOfBirth": "1994-06-06",
+    "startDate": "2020-11-01",
+    "department": "Engineering",
+    "street": "330 Pine Street",
+    "city": "Bakersfield",
+    "state": "CA",
+    "zipCode": "93301"
+  },
+  {
+    "firstName": "Camille",
+    "lastName": "Lauroys",
+    "dateOfBirth": "1987-09-09",
+    "startDate": "2023-03-03",
+    "department": "Sales",
+    "street": "255 Cedar Lane",
+    "city": "Oakland",
+    "state": "CA",
+    "zipCode": "94607"
   }
 ]
