@@ -10,7 +10,7 @@ function SelectField({
 }) {
   return (
     <div className="inputWrapper">
-      <label>{label}</label>
+      <label htmlFor={id}>{label}</label>
       <select id={id} name={name} required value={value} onChange={onChange}>
         <option value="" disabled hidden>
           {placeholder}

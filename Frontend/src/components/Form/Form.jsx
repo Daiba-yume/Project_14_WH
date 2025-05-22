@@ -65,7 +65,9 @@ function Form({ onSuccess }) {
         />
         {/* Input Date */}
         <div className="formGroup">
-          <label className="labelPicker">Date of Birth</label>
+          <label className="labelPicker" htmlFor="dateOfBirth">
+            Date of Birth
+          </label>
           <DatePicker
             selected={dateOfBirth}
             onChange={(date) => {
@@ -83,7 +85,9 @@ function Form({ onSuccess }) {
           />
         </div>
         <div className="formGroup">
-          <label className="labelPicker">Start Date</label>
+          <label className="labelPicker" htmlFor="startDate">
+            Start Date
+          </label>
           <DatePicker
             selected={startDate}
             onChange={(date) => {

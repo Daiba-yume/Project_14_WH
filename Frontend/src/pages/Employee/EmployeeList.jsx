@@ -51,8 +51,11 @@ function EmployeeList() {
       <h1>All Employees</h1>
       <div className="headerEmployee">
         <div className="showSelect">
-          <span className="showLabel">Show</span>
+          <label htmlFor="selectShow" className="showLabel">
+            Show
+          </label>
           <select
+            id="selectShow"
             className="selectShow"
             value={table.getState().pagination.pageSize}
             onChange={(e) => {
@@ -68,8 +71,9 @@ function EmployeeList() {
           <span className="showLabel">entries</span>
         </div>
         <div className="search">
-          <label>Search:</label>
+          <label htmlFor="searchInput">Search:</label>
           <input
+            id="searchInput"
             type="text"
             value={globalFilter}
             onChange={(e) => setGlobalFilter(e.target.value)}

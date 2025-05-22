@@ -2,7 +2,7 @@ import "./InputField.scss";
 function InputField({ id, label, name, type = "text", value, onChange }) {
   return (
     <div className="inputWrapper">
-      <label>{label}</label>
+      <label htmlFor={id}>{label}</label>
       <input
         id={id}
         name={name}
