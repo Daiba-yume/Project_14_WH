@@ -43,7 +43,7 @@ function Form({ onSuccess }) {
     <section className="formContainer">
       <div className="titleContainer">
         <h1>HRnet</h1>
-        <Link to="/employeeList" className="employeeList">
+        <Link to="/employeeList" className="allEmployee">
           See All Employees
         </Link>
       </div>
