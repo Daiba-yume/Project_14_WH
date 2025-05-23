@@ -86,9 +86,29 @@
     }
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1340px) and (min-width: 1025px) {
+    .tableContainer {
+      width: 95%;
+    }
+    th,
+    td {
+      font-size: 12px;
+    }
+    .pagination {
+      width: 95%;
+      margin-top: -20px;
+    }
+  }
+  @media screen and (max-width: 1024px) and (min-width: 769px) {
+    .tableContainer {
+      width: 98%;
+    }
     tr {
-      font-size: 10px;
+      font-size: 8px;
+    }
+    .pagination {
+      width: 95%;
+      margin-top: -30px;
     }
   }
   @media screen and (max-width: 768px) {
