@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import "./EmployeeList.scss";
+import { FaSortUp, FaSortDown } from "react-icons/fa";
 import {
   useReactTable,
   getCoreRowModel,
   getPaginationRowModel,
   getFilteredRowModel,
   flexRender,
+  getSortedRowModel,
 } from "@tanstack/react-table";
 import { useSelector } from "react-redux";
 import employeeFromJson from "../../data/employee.json";
@@ -21,6 +23,7 @@ function EmployeeList() {
   );
 
   const [globalFilter, setGlobalFilter] = useState("");
+  const [sorting, setSorting] = useState([]);
 
   const columns = [
     { accessorKey: "firstName", header: "First Name" },
@@ -39,12 +42,15 @@ function EmployeeList() {
     columns,
     state: {
       globalFilter,
+      sorting,
     },
     onGlobalFilterChange: setGlobalFilter,
+    onSortingChange: setSorting,
     globalFilterFn: "includesString",
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
+    getSortedRowModel: getSortedRowModel(),
   });
   return (
     <section className="employeeList">
@@ -87,13 +93,49 @@ function EmployeeList() {
             {table.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (
-                  <th key={header.id}>
+                  <th
+                    key={header.id}
+                    style={{
+                      cursor: "pointer",
+                    }}
+                  >
                     {header.isPlaceholder
                       ? null
                       : flexRender(
                           header.column.columnDef.header,
                           header.getContext()
                         )}
+                    <span
+                      style={{
+                        marginLeft: "12px",
+                        color: " #000",
+                      }}
+                    >
+                      <FaSortUp
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          header.column.getIsSorted() === "asc"
+                            ? header.column.clearSorting()
+                            : header.column.toggleSorting(false);
+                        }}
+                        style={{
+                          opacity:
+                            header.column.getIsSorted() === "asc" ? 1 : 0.3,
+                        }}
+                      />
+                      <FaSortDown
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          header.column.getIsSorted() === "desc"
+                            ? header.column.clearSorting()
+                            : header.column.toggleSorting(true);
+                        }}
+                        style={{
+                          opacity:
+                            header.column.getIsSorted() === "desc" ? 1 : 0.3,
+                        }}
+                      />
+                    </span>
                   </th>
                 ))}
               </tr>
