@@ -9,9 +9,10 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addEmployee } from "../../Redux/Slices/employeesSlice";
 import states from "../../data/states.json";
+import PickerDate from "../DatePicker/DatePicker";
 
 function Form({ onSuccess }) {
-  const [dateOfBirth, setDateOfBirth] = useState(null);
+  // const [dateOfBirth, setDateOfBirth] = useState(null);
   const [startDate, setStartDate] = useState(null);
   const dispatch = useDispatch();
 
@@ -68,7 +69,8 @@ function Form({ onSuccess }) {
           <label className="labelPicker" htmlFor="dateOfBirth">
             Date of Birth
           </label>
-          <DatePicker
+          <PickerDate />
+          {/* <DatePicker
             selected={dateOfBirth}
             onChange={(date) => {
               setDateOfBirth(date);
@@ -82,7 +84,7 @@ function Form({ onSuccess }) {
             dateFormat="dd/MM/yyyy"
             className="inputPicker"
             required
-          />
+          /> */}
         </div>
         <div className="formGroup">
           <label className="labelPicker" htmlFor="startDate">
