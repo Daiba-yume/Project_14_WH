@@ -2,6 +2,7 @@ import { useState } from "react";
 import CalendarHeader from "../Calendar/CalendarHeader";
 import CalendarGrid from "../Calendar/CalendarGrid";
 import "./DatePicker.scss";
+import CalendarNav from "../Calendar/CalendarNav";
 
 function PickerDate() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,10 +14,6 @@ function PickerDate() {
         <div
           style={{
             position: "absolute",
-            display: "grid",
-            gridTemplateColumns: "repeat(7,30px",
-            gap: "5px",
-            padding: "12px",
             border: "1px solid #ccc",
             borderRadius: "5px",
             marginTop: "5px",
@@ -25,8 +22,18 @@ function PickerDate() {
             textAlign: "center",
           }}
         >
-          <CalendarHeader />
-          <CalendarGrid />
+          <CalendarNav />
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(7,30px)",
+              gap: "5px",
+              padding: "12px",
+            }}
+          >
+            <CalendarHeader />
+            <CalendarGrid />
+          </div>
         </div>
       )}
     </div>
