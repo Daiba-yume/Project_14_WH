@@ -1,5 +1,20 @@
-import { TbArrowBadgeLeft, TbArrowBadgeRight } from "react-icons/tb";
-function CalendarNav() {
+import { AiOutlineDoubleLeft, AiOutlineDoubleRight } from "react-icons/ai";
+function CalendarNav({ date, setDate }) {
+  const month = date.toLocaleString("fr-FR", { month: "long" });
+  const year = date.getFullYear();
+
+  const goToPreviousMonth = () => {
+    const newDate = new Date(date);
+    newDate.setMonth(date.getMonth() - 1);
+    setDate(newDate);
+  };
+
+  const goToNextMonth = () => {
+    const newDate = new Date(date);
+    newDate.setMonth(date.getMonth() + 1);
+    setDate(newDate);
+  };
+
   return (
     <div
       style={{
@@ -7,20 +22,20 @@ function CalendarNav() {
         justifyContent: "space-between",
         alignItems: "center",
         gap: "20px",
-        padding: "0 10px",
+        padding: "10px 20px 0px",
       }}
     >
       <div>
-        <TbArrowBadgeLeft />
+        <AiOutlineDoubleLeft onClick={goToPreviousMonth} />
       </div>
       <span
         label="monthLabel"
         style={{ fontWeight: "bold", textAlign: "center", color: "#1a4301" }}
       >
-        Juin 2025
+        {month.charAt(0).toUpperCase() + month.slice(1)} {year}
       </span>
       <div>
-        <TbArrowBadgeRight />
+        <AiOutlineDoubleRight onClick={goToNextMonth} />
       </div>
     </div>
   );

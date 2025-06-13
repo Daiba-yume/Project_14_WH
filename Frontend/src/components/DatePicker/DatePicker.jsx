@@ -6,6 +6,7 @@ import CalendarNav from "../Calendar/CalendarNav";
 
 function PickerDate() {
   const [isOpen, setIsOpen] = useState(false);
+  const [currentdate, setCurrentDate] = useState(new Date());
 
   return (
     <div>
@@ -22,7 +23,7 @@ function PickerDate() {
             textAlign: "center",
           }}
         >
-          <CalendarNav />
+          <CalendarNav date={currentdate} setDate={setCurrentDate} />
           <div
             style={{
               display: "grid",
