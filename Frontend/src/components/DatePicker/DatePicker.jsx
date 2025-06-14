@@ -33,7 +33,7 @@ function PickerDate() {
             }}
           >
             <CalendarHeader />
-            <CalendarGrid />
+            <CalendarGrid date={currentdate} />
           </div>
         </div>
       )}
