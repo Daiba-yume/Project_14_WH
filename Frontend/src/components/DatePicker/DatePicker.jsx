@@ -6,7 +6,9 @@ import CalendarNav from "../Calendar/CalendarNav";
 
 function PickerDate() {
   const [isOpen, setIsOpen] = useState(false);
-  const [currentdate, setCurrentDate] = useState(new Date());
+  const [currentdate, setCurrentDate] = useState(null);
+
+  const displayDate = currentdate || new Date();
 
   const minAge = 18;
   const minDate = new Date();
@@ -15,7 +17,12 @@ function PickerDate() {
   return (
     <>
       <div>
-        <input onClick={() => setIsOpen(!isOpen)} className="inputCal" />
+        <input
+          onClick={() => setIsOpen(!isOpen)}
+          className="inputCal"
+          value={currentdate ? currentdate.toLocaleDateString() : ""}
+          readOnly
+        />
         {isOpen && (
           <div
             style={{
@@ -28,7 +35,22 @@ function PickerDate() {
               textAlign: "center",
             }}
           >
-            <CalendarNav date={currentdate} setDate={setCurrentDate} />
+            <CalendarNav
+              date={displayDate}
+              setDate={setCurrentDate}
+              navStyle={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                gap: "20px",
+                padding: "10px 20px 0px",
+              }}
+              navLabelStyle={{
+                fontWeight: "bold",
+                textAlign: "center",
+                color: "#1a4301",
+              }}
+            />
             <div
               style={{
                 display: "grid",
@@ -37,11 +59,25 @@ function PickerDate() {
                 padding: "12px",
               }}
             >
-              <CalendarHeader />
+              <CalendarHeader
+                weekDaysStyle={{
+                  fontWeight: "bold",
+                  fontSize: "13px",
+                  color: "#424a26",
+                }}
+              />
               <CalendarGrid
-                date={currentdate}
+                date={displayDate}
                 minDate={minDate}
-                onSelectDate={(selectedDate) => setCurrentDate(selectedDate)}
+                onSelectDate={(selectedDate) => {
+                  setCurrentDate(selectedDate);
+                  setIsOpen(false);
+                }}
+                daysStyle={{
+                  fontSize: "12px",
+                  color: "#627031",
+                  fontWeight: "bold",
+                }}
               />
             </div>
           </div>

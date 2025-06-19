@@ -1,4 +1,4 @@
-function CalendarHeader() {
+function CalendarHeader({ weekDaysStyle = {} }) {
   const days = ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"];
 
   return (
@@ -8,9 +8,7 @@ function CalendarHeader() {
         <div
           key={day}
           style={{
-            fontWeight: "bold",
-            fontSize: "13px",
-            color: "#424a26",
+            ...weekDaysStyle,
           }}
         >
           {day}

@@ -1,5 +1,5 @@
-import { AiOutlineDoubleLeft, AiOutlineDoubleRight } from "react-icons/ai";
-function CalendarNav({ date, setDate }) {
+import { TbArrowLeftToArc, TbArrowRightToArc } from "react-icons/tb";
+function CalendarNav({ date, setDate, navStyle = {}, navLabelStyle = {} }) {
   const month = date.toLocaleString("fr-FR", { month: "long" });
   const year = date.getFullYear();
 
@@ -18,24 +18,17 @@ function CalendarNav({ date, setDate }) {
   return (
     <div
       style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        gap: "20px",
-        padding: "10px 20px 0px",
+        ...navStyle,
       }}
     >
       <div>
-        <AiOutlineDoubleLeft onClick={goToPreviousMonth} />
+        <TbArrowLeftToArc onClick={goToPreviousMonth} size={20} />
       </div>
-      <span
-        label="monthLabel"
-        style={{ fontWeight: "bold", textAlign: "center", color: "#1a4301" }}
-      >
+      <span style={{ ...navLabelStyle }}>
         {month.charAt(0).toUpperCase() + month.slice(1)} {year}
       </span>
       <div>
-        <AiOutlineDoubleRight onClick={goToNextMonth} />
+        <TbArrowRightToArc onClick={goToNextMonth} size={20} />
       </div>
     </div>
   );
