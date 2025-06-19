@@ -6,9 +6,8 @@ import CalendarNav from "../Calendar/CalendarNav";
 
 function PickerDate() {
   const [isOpen, setIsOpen] = useState(false);
-  const [currentdate, setCurrentDate] = useState(null);
-
-  const displayDate = currentdate || new Date();
+  const [currentdate, setCurrentDate] = useState(new Date());
+  const [inputValue, setInputValue] = useState("");
 
   const minAge = 18;
   const minDate = new Date();
@@ -20,8 +19,9 @@ function PickerDate() {
         <input
           onClick={() => setIsOpen(!isOpen)}
           className="inputCal"
-          value={currentdate ? currentdate.toLocaleDateString() : ""}
-          readOnly
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          placeholder="jj/mm/aaaa"
         />
         {isOpen && (
           <div
@@ -36,7 +36,7 @@ function PickerDate() {
             }}
           >
             <CalendarNav
-              date={displayDate}
+              date={currentdate}
               setDate={setCurrentDate}
               navStyle={{
                 display: "flex",
@@ -67,10 +67,11 @@ function PickerDate() {
                 }}
               />
               <CalendarGrid
-                date={displayDate}
+                date={currentdate}
                 minDate={minDate}
-                onSelectDate={(selectedDate) => {
-                  setCurrentDate(selectedDate);
+                onSelectDate={(date) => {
+                  setCurrentDate(date);
+                  setInputValue(date.toLocaleDateString());
                   setIsOpen(false);
                 }}
                 daysStyle={{

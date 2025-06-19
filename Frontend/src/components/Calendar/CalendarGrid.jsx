@@ -1,4 +1,4 @@
-function CalendarGrid({ date, minDate, onSelectDate, daysStyle = {} }) {
+function CalendarGrid({ date, onSelectDate, daysStyle = {} }) {
   const month = date.getMonth();
   const year = date.getFullYear();
 
@@ -34,16 +34,15 @@ function CalendarGrid({ date, minDate, onSelectDate, daysStyle = {} }) {
     <>
       {/* Jours du mois */}
       {daysInMonth.map(({ day, currentMonth }, index) => {
-        const isTooYoung = currentMonth && new Date(year, month, day) > minDate;
         const grayStyle = {
           opacity: currentMonth ? 1 : 0.4,
-          cursor: currentMonth && !isTooYoung ? "pointer" : "default",
+          cursor: currentMonth ? "pointer" : "default",
         };
         return (
           <div
             key={index}
             onClick={() => {
-              if (!isTooYoung && currentMonth) {
+              if (currentMonth) {
                 onSelectDate(new Date(year, month, day));
               }
             }}
