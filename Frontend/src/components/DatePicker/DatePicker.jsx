@@ -8,36 +8,46 @@ function PickerDate() {
   const [isOpen, setIsOpen] = useState(false);
   const [currentdate, setCurrentDate] = useState(new Date());
 
+  const minAge = 18;
+  const minDate = new Date();
+  minDate.setFullYear(minDate.getFullYear() - minAge);
+
   return (
-    <div>
-      <input onClick={() => setIsOpen(!isOpen)} className="inputCal" />
-      {isOpen && (
-        <div
-          style={{
-            position: "absolute",
-            border: "1px solid #ccc",
-            borderRadius: "5px",
-            marginTop: "5px",
-            backgroundColor: "white",
-            zIndex: 1,
-            textAlign: "center",
-          }}
-        >
-          <CalendarNav date={currentdate} setDate={setCurrentDate} />
+    <>
+      <div>
+        <input onClick={() => setIsOpen(!isOpen)} className="inputCal" />
+        {isOpen && (
           <div
             style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(7,30px)",
-              gap: "5px",
-              padding: "12px",
+              position: "absolute",
+              border: "1px solid #ccc",
+              borderRadius: "5px",
+              marginTop: "5px",
+              backgroundColor: "white",
+              zIndex: 1,
+              textAlign: "center",
             }}
           >
-            <CalendarHeader />
-            <CalendarGrid date={currentdate} />
+            <CalendarNav date={currentdate} setDate={setCurrentDate} />
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(7,30px)",
+                gap: "5px",
+                padding: "12px",
+              }}
+            >
+              <CalendarHeader />
+              <CalendarGrid
+                date={currentdate}
+                minDate={minDate}
+                onSelectDate={(selectedDate) => setCurrentDate(selectedDate)}
+              />
+            </div>
           </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+    </>
   );
 }
 
