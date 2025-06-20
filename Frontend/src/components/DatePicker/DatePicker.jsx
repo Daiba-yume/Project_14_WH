@@ -20,6 +20,12 @@ function PickerDate() {
       <div>
         <input
           onClick={() => setIsOpen(!isOpen)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              e.preventDefault();
+              setIsOpen(!isOpen);
+            }
+          }}
           className="inputCal"
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
@@ -75,7 +81,7 @@ function PickerDate() {
                 minDate={minDate}
                 onSelectDate={(date) => {
                   setCurrentDate(date);
-                  setInputValue(date.toLocaleDateString());
+                  setInputValue(date.toLocaleDateString(locale));
                   setIsOpen(false);
                 }}
                 daysStyle={{

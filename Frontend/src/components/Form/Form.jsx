@@ -69,7 +69,13 @@ function Form({ onSuccess }) {
           <label className="labelPicker" htmlFor="dateOfBirth">
             Date of Birth
           </label>
-          <PickerDate />
+          <PickerDate
+            value={formData.dateOfBirth}
+            onChange={(date) =>
+              setFormData((prev) => ({ ...prev, dateOfBirth: date }))
+            }
+            required
+          />
           {/* <DatePicker
             selected={dateOfBirth}
             onChange={(date) => {

@@ -38,14 +38,25 @@ function CalendarGrid({ date, onSelectDate, daysStyle = {} }) {
           opacity: currentMonth ? 1 : 0.4,
           cursor: currentMonth ? "pointer" : "default",
         };
+        const handleKeyDown = (e) => {
+          if (e.key === "Enter" && currentMonth) {
+            onSelectDate(new Date(year, month, day));
+          }
+        };
         return (
           <div
             key={index}
+            role="button"
+            tabIndex={currentMonth ? 0 : -1}
+            aria-label={`Jour ${day}${
+              currentMonth ? "du mois courant" : "hors mois courant"
+            }`}
             onClick={() => {
               if (currentMonth) {
                 onSelectDate(new Date(year, month, day));
               }
             }}
+            onKeyDown={handleKeyDown}
             style={{ ...daysStyle, ...grayStyle }}
           >
             {day}

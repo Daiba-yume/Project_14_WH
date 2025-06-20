@@ -8,3 +8,10 @@
   transition: border-color 0.3s ease;
   border: 2px solid #484545;
 }
+
+[role="button"]:hover {
+  outline: none;
+  box-shadow: 0 0 4px 2px #1a4301;
+  border-radius: 4px;
+  background-color: #d7ebcd;
+}

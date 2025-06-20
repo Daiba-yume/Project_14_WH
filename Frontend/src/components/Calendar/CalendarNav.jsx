@@ -1,3 +1,5 @@
+import "../DatePicker/DatePicker.scss";
+
 import { TbArrowLeftToArc, TbArrowRightToArc } from "react-icons/tb";
 function CalendarNav({ date, setDate, navStyle = {}, navLabelStyle = {} }) {
   const month = date.toLocaleString("fr-FR", { month: "long" });
@@ -21,14 +23,30 @@ function CalendarNav({ date, setDate, navStyle = {}, navLabelStyle = {} }) {
         ...navStyle,
       }}
     >
-      <div>
-        <TbArrowLeftToArc onClick={goToPreviousMonth} size={20} />
+      <div
+        role="button"
+        tabIndex={0}
+        aria-label="Mois précédent"
+        onClick={goToPreviousMonth}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") goToPreviousMonth();
+        }}
+      >
+        <TbArrowLeftToArc size={20} />
       </div>
       <span style={{ ...navLabelStyle }}>
         {month.charAt(0).toUpperCase() + month.slice(1)} {year}
       </span>
-      <div>
-        <TbArrowRightToArc onClick={goToNextMonth} size={20} />
+      <div
+        role="button"
+        tabIndex={0}
+        aria-label="Mois suivant"
+        onClick={goToNextMonth}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") goToNextMonth();
+        }}
+      >
+        <TbArrowRightToArc size={20} />
       </div>
     </div>
   );
