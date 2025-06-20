@@ -9,6 +9,8 @@ function PickerDate() {
   const [currentdate, setCurrentDate] = useState(new Date());
   const [inputValue, setInputValue] = useState("");
 
+  const locale = "fr-FR"; // par défaut français "fr-Fr", sinon switch en anglais "en-US"
+
   const minAge = 18;
   const minDate = new Date();
   minDate.setFullYear(minDate.getFullYear() - minAge);
@@ -60,6 +62,7 @@ function PickerDate() {
               }}
             >
               <CalendarHeader
+                locale={locale}
                 weekDaysStyle={{
                   fontWeight: "bold",
                   fontSize: "13px",
@@ -67,6 +70,7 @@ function PickerDate() {
                 }}
               />
               <CalendarGrid
+                locale={locale}
                 date={currentdate}
                 minDate={minDate}
                 onSelectDate={(date) => {

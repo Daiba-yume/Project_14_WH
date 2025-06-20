@@ -1,6 +1,7 @@
-function CalendarHeader({ weekDaysStyle = {} }) {
-  const days = ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"];
-
+function CalendarHeader({ locale = "fr-FR", weekDaysStyle = {} }) {
+  const daysFR = ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"];
+  const daysEN = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fry", "Sat"];
+  const days = locale.startsWith("fr") ? daysFR : daysEN;
   return (
     <>
       {/* Jours de la semaine */}
