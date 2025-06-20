@@ -4,16 +4,27 @@ import CalendarGrid from "../Calendar/CalendarGrid";
 import "./DatePicker.scss";
 import CalendarNav from "../Calendar/CalendarNav";
 
-function PickerDate() {
+function PickerDate({ minAge = null }) {
   const [isOpen, setIsOpen] = useState(false);
   const [currentdate, setCurrentDate] = useState(new Date());
   const [inputValue, setInputValue] = useState("");
 
   const locale = "fr-FR"; // par défaut français "fr-Fr", sinon switch en anglais "en-US"
 
-  const minAge = 18;
-  const minDate = new Date();
-  minDate.setFullYear(minDate.getFullYear() - minAge);
+  const minDate =
+    minAge !== null
+      ? new Date(new Date().setFullYear(new Date().getFullYear() - minAge))
+      : null;
+
+  const handleSelectDate = (date) => {
+    if (minDate && date > minDate) {
+      alert(`Vous devez avoir au moins ${minAge} ans.`);
+      return;
+    }
+    setCurrentDate(date);
+    setInputValue(date.toLocaleDateString(locale));
+    setIsOpen(false);
+  };
 
   return (
     <>
@@ -58,6 +69,12 @@ function PickerDate() {
                 textAlign: "center",
                 color: "#1a4301",
               }}
+              selectStyle={{
+                backgroundColor: "#adc178",
+                borderRadius: "5px",
+                border: "none",
+                padding: "5px",
+              }}
             />
             <div
               style={{
@@ -78,12 +95,7 @@ function PickerDate() {
               <CalendarGrid
                 locale={locale}
                 date={currentdate}
-                minDate={minDate}
-                onSelectDate={(date) => {
-                  setCurrentDate(date);
-                  setInputValue(date.toLocaleDateString(locale));
-                  setIsOpen(false);
-                }}
+                onSelectDate={handleSelectDate}
                 daysStyle={{
                   fontSize: "12px",
                   color: "#627031",

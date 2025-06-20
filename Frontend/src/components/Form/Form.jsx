@@ -70,6 +70,7 @@ function Form({ onSuccess }) {
             Date of Birth
           </label>
           <PickerDate
+            minAge={18}
             value={formData.dateOfBirth}
             onChange={(date) =>
               setFormData((prev) => ({ ...prev, dateOfBirth: date }))
