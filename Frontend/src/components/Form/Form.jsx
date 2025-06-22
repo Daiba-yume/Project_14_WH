@@ -3,7 +3,6 @@ import SelectField from "../../utils/Select/SelectField";
 import { Link } from "react-router-dom";
 import "./Form.scss";
 import FieldSet from "../../utils/Field/FieldSet";
-import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addEmployee } from "../../Redux/Slices/employeesSlice";
@@ -11,7 +10,7 @@ import states from "../../data/states.json";
 import DatePicker from "datepicker-wh-react";
 
 function Form({ onSuccess }) {
-  // const [dateOfBirth, setDateOfBirth] = useState(null);
+  const [dateOfBirth, setDateOfBirth] = useState(null);
   const [startDate, setStartDate] = useState(null);
   const dispatch = useDispatch();
 
@@ -74,10 +73,14 @@ function Form({ onSuccess }) {
             weekDaysStyle={{ color: "#424a26" }}
             daysColor="#627031"
             minAge={18}
-            value={formData.dateOfBirth}
-            onChange={(date) =>
-              setFormData((prev) => ({ ...prev, dateOfBirth: date }))
-            }
+            value={dateOfBirth}
+            onChange={(date) => {
+              setDateOfBirth(date);
+              setFormData((prev) => ({
+                ...prev,
+                dateOfBirth: date.toLocaleDateString(),
+              }));
+            }}
             required
           />
         </div>
@@ -86,7 +89,11 @@ function Form({ onSuccess }) {
             Start Date
           </label>
           <DatePicker
-            selected={startDate}
+            navLabelStyle={{ color: "#1a4301" }}
+            selectStyle={{ backgroundColor: "#adc178" }}
+            weekDaysStyle={{ color: "#424a26" }}
+            daysColor="#627031"
+            value={startDate}
             onChange={(date) => {
               setStartDate(date);
               setFormData((prevData) => ({
@@ -94,9 +101,6 @@ function Form({ onSuccess }) {
                 startDate: date.toLocaleDateString(),
               }));
             }}
-            id="startDate"
-            name="startDate"
-            dateFormat="dd/MM/yyyy"
             className="inputPicker"
             required
           />
