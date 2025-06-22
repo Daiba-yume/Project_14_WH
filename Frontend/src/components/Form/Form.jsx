@@ -3,14 +3,13 @@ import SelectField from "../../utils/Select/SelectField";
 import { Link } from "react-router-dom";
 import "./Form.scss";
 import FieldSet from "../../utils/Field/FieldSet";
-import DatePicker from "react-datepicker";
+/* import DatePicker from "react-datepicker"; */
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addEmployee } from "../../Redux/Slices/employeesSlice";
 import states from "../../data/states.json";
-import PickerDate from "../DatePicker/DatePicker";
-import { TbBackground } from "react-icons/tb";
+import DatePicker from "../DatePicker/DatePicker";
 
 function Form({ onSuccess }) {
   // const [dateOfBirth, setDateOfBirth] = useState(null);
@@ -70,7 +69,7 @@ function Form({ onSuccess }) {
           <label className="labelPicker" htmlFor="dateOfBirth">
             Date of Birth
           </label>
-          <PickerDate
+          <DatePicker
             navLabelStyle={{ color: "#1a4301" }}
             selectStyle={{ backgroundColor: "#adc178" }}
             weekDaysStyle={{ color: "#424a26" }}

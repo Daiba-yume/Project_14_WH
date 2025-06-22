@@ -1,10 +1,10 @@
 import { useState } from "react";
-import CalendarHeader from "../Calendar/CalendarHeader";
-import CalendarGrid from "../Calendar/CalendarGrid";
+import CalendarHeader from "./Calendar/CalendarHeader";
+import CalendarGrid from "./Calendar/CalendarGrid";
 import "./DatePicker.scss";
-import CalendarNav from "../Calendar/CalendarNav";
+import CalendarNav from "./Calendar/CalendarNav";
 
-function PickerDate({
+function DatePicker({
   minAge = null,
   navLabelStyle = {},
   selectStyle = {},
@@ -72,4 +72,4 @@ function PickerDate({
   );
 }
 
-export default PickerDate;
+export default DatePicker;
