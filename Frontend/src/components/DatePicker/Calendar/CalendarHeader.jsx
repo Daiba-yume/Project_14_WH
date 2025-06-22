@@ -1,4 +1,4 @@
-import "../DatePicker/DatePicker.scss";
+import "../DatePicker.scss";
 
 function CalendarHeader({ locale = "fr-FR", weekDaysStyle = {} }) {
   const daysFR = ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"];

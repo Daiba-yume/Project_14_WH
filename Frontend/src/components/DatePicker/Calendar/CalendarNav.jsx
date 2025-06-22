@@ -1,4 +1,4 @@
-import "../DatePicker/DatePicker.scss";
+import "../DatePicker.scss";
 
 import { TbArrowLeftToArc, TbArrowRightToArc } from "react-icons/tb";
 function CalendarNav({ date, setDate, navLabelStyle = {}, selectStyle = {} }) {
