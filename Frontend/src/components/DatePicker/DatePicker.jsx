@@ -4,7 +4,13 @@ import CalendarGrid from "../Calendar/CalendarGrid";
 import "./DatePicker.scss";
 import CalendarNav from "../Calendar/CalendarNav";
 
-function PickerDate({ minAge = null }) {
+function PickerDate({
+  minAge = null,
+  navLabelStyle = {},
+  selectStyle = {},
+  weekDaysStyle = {},
+  daysColor = "#627031",
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const [currentdate, setCurrentDate] = useState(new Date());
   const [inputValue, setInputValue] = useState("");
@@ -43,64 +49,20 @@ function PickerDate({ minAge = null }) {
           placeholder="jj/mm/aaaa"
         />
         {isOpen && (
-          <div
-            style={{
-              position: "absolute",
-              border: "1px solid #ccc",
-              borderRadius: "5px",
-              marginTop: "5px",
-              backgroundColor: "white",
-              zIndex: 1,
-              textAlign: "center",
-            }}
-          >
+          <div className="calendarContainer">
             <CalendarNav
               date={currentdate}
               setDate={setCurrentDate}
-              navStyle={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                gap: "20px",
-                padding: "10px 20px 0px",
-              }}
-              navLabelStyle={{
-                fontWeight: "bold",
-                textAlign: "center",
-                color: "#1a4301",
-              }}
-              selectStyle={{
-                backgroundColor: "#adc178",
-                borderRadius: "5px",
-                border: "none",
-                padding: "5px",
-              }}
+              navLabelStyle={navLabelStyle}
+              selectStyle={selectStyle}
             />
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(7,30px)",
-                gap: "5px",
-                padding: "12px",
-              }}
-            >
-              <CalendarHeader
-                locale={locale}
-                weekDaysStyle={{
-                  fontWeight: "bold",
-                  fontSize: "13px",
-                  color: "#424a26",
-                }}
-              />
+            <div className="calendarGrid">
+              <CalendarHeader locale={locale} weekDaysStyle={weekDaysStyle} />
               <CalendarGrid
                 locale={locale}
                 date={currentdate}
                 onSelectDate={handleSelectDate}
-                daysStyle={{
-                  fontSize: "12px",
-                  color: "#627031",
-                  fontWeight: "bold",
-                }}
+                daysColor={daysColor}
               />
             </div>
           </div>

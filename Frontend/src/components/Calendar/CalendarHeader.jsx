@@ -1,3 +1,5 @@
+import "../DatePicker/DatePicker.scss";
+
 function CalendarHeader({ locale = "fr-FR", weekDaysStyle = {} }) {
   const daysFR = ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"];
   const daysEN = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fry", "Sat"];
@@ -6,12 +8,7 @@ function CalendarHeader({ locale = "fr-FR", weekDaysStyle = {} }) {
     <>
       {/* Jours de la semaine */}
       {days.map((day) => (
-        <div
-          key={day}
-          style={{
-            ...weekDaysStyle,
-          }}
-        >
+        <div className="weekDays" key={day} style={weekDaysStyle}>
           {day}
         </div>
       ))}

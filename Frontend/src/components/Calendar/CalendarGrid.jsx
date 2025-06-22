@@ -1,4 +1,4 @@
-function CalendarGrid({ date, onSelectDate, daysStyle = {} }) {
+function CalendarGrid({ date, onSelectDate, daysColor }) {
   const month = date.getMonth();
   const year = date.getFullYear();
 
@@ -34,7 +34,10 @@ function CalendarGrid({ date, onSelectDate, daysStyle = {} }) {
     <>
       {/* Jours du mois */}
       {daysInMonth.map(({ day, currentMonth }, index) => {
-        const grayStyle = {
+        const style = {
+          fontSize: "12px",
+          fontWeight: "bold",
+          color: currentMonth ? daysColor : "#aaa",
           opacity: currentMonth ? 1 : 0.4,
           cursor: currentMonth ? "pointer" : "default",
         };
@@ -51,13 +54,14 @@ function CalendarGrid({ date, onSelectDate, daysStyle = {} }) {
             aria-label={`Jour ${day}${
               currentMonth ? "du mois courant" : "hors mois courant"
             }`}
+            aria-selected={currentMonth}
             onClick={() => {
               if (currentMonth) {
                 onSelectDate(new Date(year, month, day));
               }
             }}
             onKeyDown={handleKeyDown}
-            style={{ ...daysStyle, ...grayStyle }}
+            style={style}
           >
             {day}
           </div>

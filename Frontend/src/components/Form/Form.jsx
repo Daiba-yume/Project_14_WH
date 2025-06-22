@@ -10,6 +10,7 @@ import { useDispatch } from "react-redux";
 import { addEmployee } from "../../Redux/Slices/employeesSlice";
 import states from "../../data/states.json";
 import PickerDate from "../DatePicker/DatePicker";
+import { TbBackground } from "react-icons/tb";
 
 function Form({ onSuccess }) {
   // const [dateOfBirth, setDateOfBirth] = useState(null);
@@ -70,6 +71,10 @@ function Form({ onSuccess }) {
             Date of Birth
           </label>
           <PickerDate
+            navLabelStyle={{ color: "#1a4301" }}
+            selectStyle={{ backgroundColor: "#adc178" }}
+            weekDaysStyle={{ color: "#424a26" }}
+            daysColor="#627031"
             minAge={18}
             value={formData.dateOfBirth}
             onChange={(date) =>

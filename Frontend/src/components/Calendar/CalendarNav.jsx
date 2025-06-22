@@ -1,13 +1,7 @@
 import "../DatePicker/DatePicker.scss";
 
 import { TbArrowLeftToArc, TbArrowRightToArc } from "react-icons/tb";
-function CalendarNav({
-  date,
-  setDate,
-  navStyle = {},
-  navLabelStyle = {},
-  selectStyle = {},
-}) {
+function CalendarNav({ date, setDate, navLabelStyle = {}, selectStyle = {} }) {
   const month = date.toLocaleString("fr-FR", { month: "long" });
   const year = date.getFullYear();
 
@@ -30,11 +24,7 @@ function CalendarNav({
   }
 
   return (
-    <div
-      style={{
-        ...navStyle,
-      }}
-    >
+    <div className="navStyle">
       <div
         role="button"
         tabIndex={0}
@@ -46,10 +36,12 @@ function CalendarNav({
       >
         <TbArrowLeftToArc size={20} />
       </div>
-      <span style={{ ...navLabelStyle }}>
+      <span className="navLabelStyle" style={navLabelStyle}>
         {month.charAt(0).toUpperCase() + month.slice(1)}
       </span>
       <select
+        className="selectStyle"
+        style={selectStyle}
         aria-label="Sélectionner l'année"
         value={year}
         onChange={(e) => {
@@ -58,7 +50,6 @@ function CalendarNav({
           newDate.setFullYear(newYear);
           setDate(newDate);
         }}
-        style={{ ...selectStyle }}
       >
         {years.map((y) => (
           <option key={y} value={y}>
