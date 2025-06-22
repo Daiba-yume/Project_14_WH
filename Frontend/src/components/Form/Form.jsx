@@ -3,13 +3,12 @@ import SelectField from "../../utils/Select/SelectField";
 import { Link } from "react-router-dom";
 import "./Form.scss";
 import FieldSet from "../../utils/Field/FieldSet";
-/* import DatePicker from "react-datepicker"; */
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addEmployee } from "../../Redux/Slices/employeesSlice";
 import states from "../../data/states.json";
-import DatePicker from "../DatePicker/DatePicker";
+import DatePicker from "datepicker-wh-react";
 
 function Form({ onSuccess }) {
   // const [dateOfBirth, setDateOfBirth] = useState(null);
@@ -81,21 +80,6 @@ function Form({ onSuccess }) {
             }
             required
           />
-          {/* <DatePicker
-            selected={dateOfBirth}
-            onChange={(date) => {
-              setDateOfBirth(date);
-              setFormData((prevData) => ({
-                ...prevData,
-                dateOfBirth: date.toLocaleDateString(),
-              }));
-            }}
-            id="dateOfBirth"
-            name="dateOfBirth"
-            dateFormat="dd/MM/yyyy"
-            className="inputPicker"
-            required
-          /> */}
         </div>
         <div className="formGroup">
           <label className="labelPicker" htmlFor="startDate">
