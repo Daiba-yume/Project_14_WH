@@ -1,4 +1,3 @@
-import "./SelectField.scss";
 function SelectField({
   id,
   label,

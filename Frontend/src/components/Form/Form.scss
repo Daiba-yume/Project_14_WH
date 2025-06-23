@@ -2,32 +2,34 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 10px;
-  .titleContainer {
-    display: flex;
-    flex-direction: row;
-    gap: 40px;
-    font-size: 18px;
-    .allEmployee {
-      line-height: 3.3;
-      color: #080808;
-      text-decoration: underline;
-    }
-  }
-
+  padding-bottom: 55px;
   .titleEmployee {
-    margin: 0;
+    padding: 10px;
     font-size: 20px;
     color: black;
   }
   .form {
     display: flex;
     margin-top: 5px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
     gap: 8px;
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
+    .rowInput {
+      display: flex;
+      gap: 20px;
+      width: 100%;
+      flex-wrap: wrap;
 
+      > * {
+        flex: 1;
+        min-width: 150px;
+      }
+    }
     .formGroup {
       display: flex;
       flex-direction: column;
@@ -55,6 +57,7 @@
       cursor: pointer;
       border-radius: 10px;
       transition: transform 0.2s, background-color 0.3s;
+      width: 30%;
     }
     button:hover {
       background-color: #a4b358;
