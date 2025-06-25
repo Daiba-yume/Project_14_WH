@@ -1,13 +1,12 @@
-import InputField from "../../utils/Input/InputField";
-import SelectField from "../../utils/Select/SelectField";
-import { Link } from "react-router-dom";
+import InputField from "../Input/InputField";
 import "./Form.scss";
-import FieldSet from "../../utils/Field/FieldSet";
+import FieldSet from "../Field/FieldSet";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addEmployee } from "../../Redux/Slices/employeesSlice";
 import states from "../../data/states.json";
 import DatePicker from "datepicker-wh-react";
+import Select from "react-select";
 
 function Form({ onSuccess }) {
   const [dateOfBirth, setDateOfBirth] = useState(null);
@@ -25,6 +24,19 @@ function Form({ onSuccess }) {
     state: "",
     zipCode: "",
   });
+
+  const departmentOptions = [
+    { value: "Sales", label: "Sales" },
+    { value: "Marketing", label: "Marketing" },
+    { value: "Engineering", label: "Engineering" },
+    { value: "Human Ressources", label: "Human Ressources" },
+    { value: "Legal", label: "Legal" },
+  ];
+
+  const stateOptions = states.map((state) => ({
+    value: state.abbreviation,
+    label: state.name,
+  }));
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -103,21 +115,27 @@ function Form({ onSuccess }) {
             />
           </div>
         </div>
-        <SelectField
-          id="department"
-          label="Department"
-          name="department"
-          value={formData.department}
-          placeholder="Select Department"
-          options={[
-            "Sales",
-            "Marketing",
-            "Engineering",
-            "Human Ressources",
-            "Legal",
-          ]}
-          onChange={handleChange}
-        />
+        <div className="formGroup">
+          <label className="selectLabel" htmlFor="department">
+            Department
+          </label>
+          <Select
+            id="department"
+            label="Department"
+            name="department"
+            className="reactSelect"
+            options={departmentOptions}
+            value={departmentOptions.find(
+              (opt) => opt.value === formData.department
+            )}
+            onChange={(selected) =>
+              setFormData((prev) => ({
+                ...prev,
+                department: selected.value || "",
+              }))
+            }
+          />
+        </div>
         {/* Adress */}
         <FieldSet legend="Adress">
           <InputField
@@ -134,15 +152,23 @@ function Form({ onSuccess }) {
             value={formData.city}
             onChange={handleChange}
           />
-          <SelectField
+          <label className="selectLabel" htmlFor="state">
+            State
+          </label>
+          <Select
             id="state"
             label="State"
             name="state"
+            className="reactSelect"
             placeholder="Select State"
-            value={formData.state}
-            onChange={handleChange}
-            options={states.map((state) => state.name)}
-            required
+            options={stateOptions}
+            value={stateOptions.find((opt) => opt.value === formData.state)}
+            onChange={(selected) =>
+              setFormData((prev) => ({
+                ...prev,
+                state: selected.value || "",
+              }))
+            }
           />
           <InputField
             id="zipCode"
