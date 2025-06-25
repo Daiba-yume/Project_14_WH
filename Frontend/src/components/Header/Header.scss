@@ -54,6 +54,7 @@
       flex-direction: column;
       align-items: flex-end;
       position: absolute;
+      text-decoration: none;
       top: 70px;
       right: 20px;
       background-color: #6a7c2e;
@@ -66,11 +67,10 @@
       display: flex;
     }
     .navContainer button {
-      width: 15vh;
+      width: 18vh;
       right: auto;
-      padding: 10px 30px;
       span {
-        font-size: 12px;
+        font-size: 13px;
       }
     }
   }
