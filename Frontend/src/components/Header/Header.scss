@@ -48,13 +48,13 @@
   @media screen and (max-width: 768px) {
     .burger {
       display: block;
+      text-decoration: none;
     }
     .navContainer {
       display: none;
       flex-direction: column;
-      align-items: flex-end;
+      align-items: center;
       position: absolute;
-      text-decoration: none;
       top: 70px;
       right: 20px;
       background-color: #6a7c2e;
@@ -67,10 +67,12 @@
       display: flex;
     }
     .navContainer button {
-      width: 18vh;
+      width: 17vh;
+      padding: 10px 20px;
       right: auto;
+      box-sizing: border-box;
       span {
-        font-size: 13px;
+        font-size: 14px;
       }
     }
   }
