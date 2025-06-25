@@ -66,9 +66,12 @@
       display: flex;
     }
     .navContainer button {
-      width: 18vh;
-      right: 0;
+      width: 15vh;
+      right: auto;
       padding: 10px 30px;
+      span {
+        font-size: 12px;
+      }
     }
   }
 }

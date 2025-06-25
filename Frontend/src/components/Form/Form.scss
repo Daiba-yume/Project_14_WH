@@ -82,3 +82,9 @@
     }
   }
 }
+@media screen and (max-width: 480px) {
+  .rowInput {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
