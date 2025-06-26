@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addEmployee } from "../../Redux/Slices/employeesSlice";
 import states from "../../data/states.json";
-import DatePicker from "datepicker-wh-react";
+import DatePicker from "react-datepicker-yume";
 import Select from "react-select";
 
 function Form({ onSuccess }) {
@@ -52,7 +52,7 @@ function Form({ onSuccess }) {
   };
   return (
     <section className="formContainer">
-      <h1 className="titleEmployee">Create Employee</h1>
+      <h1 className="titleEmployee">Create an Employee</h1>
       <form className="form" onSubmit={handleSubmit}>
         <div className="rowInput">
           <InputField
@@ -81,7 +81,7 @@ function Form({ onSuccess }) {
               selectStyle={{ backgroundColor: "#adc178" }}
               weekDaysStyle={{ color: "#424a26" }}
               daysColor="#627031"
-              minAge={18}
+              /*  minAge={18} */
               value={dateOfBirth}
               onChange={(date) => {
                 setDateOfBirth(date);
@@ -124,6 +124,7 @@ function Form({ onSuccess }) {
             label="Department"
             name="department"
             className="reactSelect"
+            placeholder="Select a department..."
             options={departmentOptions}
             value={departmentOptions.find(
               (opt) => opt.value === formData.department
@@ -160,7 +161,7 @@ function Form({ onSuccess }) {
             label="State"
             name="state"
             className="reactSelect"
-            placeholder="Select State"
+            placeholder="Select a state..."
             options={stateOptions}
             value={stateOptions.find((opt) => opt.value === formData.state)}
             onChange={(selected) =>

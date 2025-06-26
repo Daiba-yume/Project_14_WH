@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Form from "../../components/Form/Form";
-/* import Modal from "../../components/Modal/Modal"; */
-import { Modal } from "react-wh-modal";
+import Modal from "react-modal-yume";
 import "./Employee.scss";
 import { PiUserCircleCheckDuotone } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
