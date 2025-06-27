@@ -9,10 +9,11 @@ import DatePicker from "react-datepicker-yume";
 import Select from "react-select";
 
 function Form({ onSuccess }) {
+  const dispatch = useDispatch();
+  // États locaux pour les dates
   const [dateOfBirth, setDateOfBirth] = useState(null);
   const [startDate, setStartDate] = useState(null);
-  const dispatch = useDispatch();
-
+  // État global du formulaire
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -24,7 +25,7 @@ function Form({ onSuccess }) {
     state: "",
     zipCode: "",
   });
-
+  // Options des départements
   const departmentOptions = [
     { value: "Sales", label: "Sales" },
     { value: "Marketing", label: "Marketing" },
@@ -32,16 +33,16 @@ function Form({ onSuccess }) {
     { value: "Human Ressources", label: "Human Ressources" },
     { value: "Legal", label: "Legal" },
   ];
-
+  // Options des états (USA)
   const stateOptions = states.map((state) => ({
     value: state.abbreviation,
     label: state.name,
   }));
-
+  // Mise à jour des champs texte
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
+  // Soumission du formulaire
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addEmployee(formData));
@@ -55,6 +56,7 @@ function Form({ onSuccess }) {
       <h1 className="titleEmployee">Create an Employee</h1>
       <form className="form" onSubmit={handleSubmit}>
         <div className="rowInput">
+          {/* Prénom et nom */}
           <InputField
             id="firstName"
             label="First Name"
@@ -71,7 +73,7 @@ function Form({ onSuccess }) {
           />
         </div>
         <div className="rowInput">
-          {/* Input Date */}
+          {/* Date de naissance */}
           <div className="formGroup">
             <label className="labelPicker" htmlFor="dateOfBirth">
               Date of Birth
@@ -93,6 +95,7 @@ function Form({ onSuccess }) {
               required
             />
           </div>
+          {/* Date de début */}
           <div className="formGroup">
             <label className="labelPicker" htmlFor="startDate">
               Start Date
@@ -115,6 +118,7 @@ function Form({ onSuccess }) {
             />
           </div>
         </div>
+        {/* Sélection du département */}
         <div className="formGroup">
           <label className="selectLabel" htmlFor="department">
             Department
@@ -153,6 +157,7 @@ function Form({ onSuccess }) {
             value={formData.city}
             onChange={handleChange}
           />
+          {/* Sélection de l’état */}
           <label className="selectLabel" htmlFor="state">
             State
           </label>

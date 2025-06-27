@@ -15,16 +15,18 @@ import { useState } from "react";
 import { useMemo } from "react";
 
 function EmployeeList() {
+  // Récupère les employés enregistrés dans le store Redux (ceux ajoutés via le formulaire)
   const employeeFromRedux = useSelector((state) => state.employees);
-  // useMemo mémorise la liste sauf si employeeFromRedux change
+  // Combine les employés du JSON (données statiques) et ceux du Redux (ajoutés via le formulaire)
+  // useMemo évite de recalculer cette liste à chaque rendu sauf si le Redux change
   const allEmployees = useMemo(
     () => [...employeeFromJson, ...employeeFromRedux],
     [employeeFromRedux]
   );
 
-  const [globalFilter, setGlobalFilter] = useState("");
-  const [sorting, setSorting] = useState([]);
-
+  const [globalFilter, setGlobalFilter] = useState(""); //filtre global(search)
+  const [sorting, setSorting] = useState([]); // tri des colonnes
+  // Définition des colonnes
   const columns = [
     { accessorKey: "firstName", header: "First Name" },
     { accessorKey: "lastName", header: "Last Name" },
@@ -36,7 +38,7 @@ function EmployeeList() {
     { accessorKey: "state", header: "State" },
     { accessorKey: "zipCode", header: "Zip Code" },
   ];
-
+  // Initialisation de la table avec tanstack/react-table
   const table = useReactTable({
     data: allEmployees,
     columns,
@@ -55,6 +57,7 @@ function EmployeeList() {
   return (
     <section className="employeeList">
       <h1>All Employees</h1>
+      {/* Options d'affichage et barre de recherche */}
       <div className="headerEmployee">
         <div className="showSelect">
           <label htmlFor="selectShow" className="showLabel">
@@ -86,10 +89,12 @@ function EmployeeList() {
           />
         </div>
       </div>
+      {/* Tableau */}
       <div className="tableContainer">
         <table>
           {/* columns */}
           <thead>
+            {/* En-têtes avec tri */}
             {table.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (
@@ -105,6 +110,7 @@ function EmployeeList() {
                           header.column.columnDef.header,
                           header.getContext()
                         )}
+                    {/* Icônes de tri ↑ ↓ */}
                     <span
                       style={{
                         marginLeft: "12px",
@@ -141,7 +147,7 @@ function EmployeeList() {
               </tr>
             ))}
           </thead>
-          {/* rows */}
+          {/* Données des lignes */}
           <tbody>
             {table.getRowModel().rows.map((row) => (
               <tr key={row.id}>
@@ -155,6 +161,7 @@ function EmployeeList() {
           </tbody>
         </table>
       </div>
+      {/* Pagination */}
       <div className="pagination">
         <div className="showingEntries">
           Showing {table.getRowModel().rows.length.toLocaleString()} of{" "}
@@ -191,7 +198,7 @@ function EmployeeList() {
           </button>
         </div>
       </div>
-
+      {/* Lien retour vers le formulaire */}
       <Link to="/employee" className="employee">
         Go back to Form
       </Link>
