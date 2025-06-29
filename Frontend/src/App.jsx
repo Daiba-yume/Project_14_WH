@@ -2,21 +2,24 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./index.css";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import Landing from "./pages/Landing/Landing";
-import EmployeeList from "./pages/Employee/EmployeeList";
-import Employee from "./pages/Home/Employee";
-
+import { Suspense, lazy } from "react";
+// Charge le composant uniquement quand il est affiché (chargement à la demande)
+const Landing = lazy(() => import("./pages/Landing/Landing"));
+const Employee = lazy(() => import("./pages/Home/Employee"));
+const EmployeeList = lazy(() => import("./pages/Employee/EmployeeList"));
 function App() {
   return (
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/employee" element={<Employee />} />
-        <Route path="/employeeList" element={<EmployeeList />} />
-      </Routes>
-      <Footer />
-    </Router>
+    <Suspense fallback={<div>Chargement...</div>}>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/employee" element={<Employee />} />
+          <Route path="/employeeList" element={<EmployeeList />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </Suspense>
   );
 }
 

@@ -12,7 +12,13 @@ function Header() {
     <nav className="header">
       {/* Lien logo vers la page d’accueil */}
       <NavLink to="/">
-        <img className="logo" src="/WH_logo.webp" alt="logo WealthHealth" />
+        <img
+          className="logo"
+          src="/WH_logo.webp"
+          width="200"
+          height="100"
+          alt="logo WealthHealth"
+        />
       </NavLink>
       {/* Bouton burger pour ouvrir/fermer le menu en mobile */}
       <button className="burger" onClick={handleToggle} aria-label="navigation">
