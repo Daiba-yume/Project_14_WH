@@ -4,7 +4,7 @@
   width: 100%;
   overflow-x: hidden;
   min-height: 784px;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   background-color: #90a446;
   h1 {
@@ -43,7 +43,8 @@
     text-decoration: underline;
   }
   .tableContainer {
-    min-height: auto;
+    flex: 1;
+    min-height: 400px;
     width: 90%;
     table {
       width: 100%;
