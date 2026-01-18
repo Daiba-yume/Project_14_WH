@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 
 <p align="center">
-  <img src="./Frontend/public/WH_logo.webp" alt="Aperçu du projet" width="600" />
+  <img src="./Frontend/public/WH_logo.webp" alt="Aperçu du projet" width="120" />
 </p>
 
 # HRnet React - Projet OpenClassrooms
