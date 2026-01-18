@@ -1,3 +1,9 @@
+<!-- markdownlint-disable -->
+
+<p align="center">
+  <img src="./Frontend/public/WH_logo.webp" alt="Aperçu du projet" width="600" />
+</p>
+
 # HRnet React - Projet OpenClassrooms
 
 Ce projet est une conversion React d’une application interne fictive HRnet, qui gère les dossiers employés.
@@ -21,15 +27,16 @@ L’objectif était de convertir au moins un plugin jQuery en React et d’utili
 
 ## Technologies utilisées
 
-- **React** (Vite)
-- **Redux** (gestion d’état)
-- **SCSS** (stylisation responsive)
-- **@tanstack/react-table** (tableaux dynamiques)
-- **react-select**(dropdown/select)
-- **React Router** (navigation)
-- **NPM** (publication de composants)
-- **Lighthouse** (audit de performance)
-- **React Icons** (icônes)
+- ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)
+- ![Vite](https://img.shields.io/badge/Vite-Build-646CFF?logo=vite&logoColor=white)
+- ![Redux](https://img.shields.io/badge/Redux-State%20Management-764ABC?logo=redux&logoColor=white)
+- ![SCSS](https://img.shields.io/badge/SCSS-Styling-CC6699?logo=sass&logoColor=white)
+- ![TanStack Table](https://img.shields.io/badge/TanStack%20Table-Data%20Tables-FF4154?logo=react-table&logoColor=white)
+- ![React Select](https://img.shields.io/badge/React%20Select-Dropdown-2EC866?logo=react&logoColor=white)
+- ![React Router](https://img.shields.io/badge/React%20Router-Navigation-CA4245?logo=react-router&logoColor=white)
+- ![NPM](https://img.shields.io/badge/NPM-Packages-CB3837?logo=npm&logoColor=white)
+- ![Lighthouse](https://img.shields.io/badge/Lighthouse-Performance-F44B21?logo=googlelighthouse&logoColor=white)
+- ![React Icons](https://img.shields.io/badge/React%20Icons-Icons-61DAFB?logo=react&logoColor=white)
 
 ## Usage
 
@@ -53,4 +60,12 @@ L’objectif était de convertir au moins un plugin jQuery en React et d’utili
 
 Daïba Yume :purple_heart:
 
+## 📄 Licence
+
+📝 Projet pédagogique — OpenClassrooms
+
 ---
+
+## 💮 Demo
+
+https://project-14-wh.vercel.app/
